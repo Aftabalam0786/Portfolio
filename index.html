@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            /* Header Content */
+            const headerTitle = "Aftab Alam";
+            const headerSubtitle = "Front-end | designer | Back-end";
+            document.querySelector("header h1").textContent = headerTitle;
+            document.querySelector("header p").textContent = headerSubtitle;
+
+            /* Hero Section Content */
+            const heroTitle = "Designing the Future";
+            const heroSubtitle = "Empowering brands through technology and creativity.";
+            document.querySelector(".hero h1").textContent = heroTitle;
+            document.querySelector(".hero p").textContent = heroSubtitle;
+
+            /* About Section Content */
+            const aboutText = [
+                "Hello, I'm Aftab Alam, a recent MCA graduate from RTU Kota, passionate about software development. With a strong foundation in both front-end and back-end technologies, I have developed a keen interest in building user-friendly, efficient, and visually appealing applications. My skills include in Front-end HTML5, CSS3, and Back-end C#, ASP.NET MVC, allowing me to create seamless user experiences and interactive web applications. I am also proficient in using GitHub for version control and collaboration in team-based projects.",
+                "Throughout my academic journey, I have honed my problem-solving abilities, communication skills, and adaptability, making me a well-rounded candidate for dynamic software development roles. I am eager to contribute my skills and learn new technologies to grow as a software developer and make a meaningful impact in the tech industry."
+            ];
+            const aboutSection = document.getElementById("about");
+            aboutSection.innerHTML = `<h2>About Me</h2><p>${aboutText[0]}</p><p>${aboutText[1]}</p>`;
+
+            /* Project List */
+            const projects = [
+                { name: "StudentManagementSystem", link: "#", description: "Features include displaying a list of students with details", img: "images/project1.jpg" },
+
+            ];
+            const projectList = document.querySelector("#projects .project-list");
+            projectList.innerHTML = projects
+                .map(
+                    (project) => `
+                        <div class='project'>
+                            <img src='${project.img}' alt='${project.name}' />
+                            <h3>${project.name}</h3>
+                            <p>${project.description}</p>
+                            <a href='https://github.com/Aftabalam0786/StudentManagementSystem.git'>View Project</a>
+                        </div>`
+                )
+                .join("");
+
+            /* Contact Information */
+            const contactEmail = "Ah4909718@gmail.com";
+            const contactPhone = "+91 12345";
+            document.querySelector("#contact").innerHTML = `
+                <h2>Contact Me</h2>
+                <p>Let's build something extraordinary together.</p>
+                <p>Email: <a href='mailto:${contactEmail}'>${contactEmail}</a></p>
+                <p>Phone: ${contactPhone}</p>`;
+
+            /* Particle.js Initialization */
+            particlesJS.load('hero', 'particles.json', function() {
+                console.log('Particles.js loaded.');
+            });
+        });
+    </script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(90deg, #1d3557, #457b9d);
+            color: #f1faee;
+        }
+
+        header h1 {
+            font-size: 3rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #a8dadc;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-button {
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            background: #e63946;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .hero-button:hover {
+            transform: scale(1.1);
+        }
+
+        .project {
+            background: #1d3557;
+            margin: 1rem;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .project img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .project h3 {
+            margin-top: 1rem;
+        }
+
+        footer {
+            background: #1d3557;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1></h1>
+        <p></p>
+    </header>
+
+    <section id="hero" class="hero">
+        <h1></h1>
+        <p></p>
+        <button class="hero-button">Explore</button>
+    </section>
+
+    <section id="about"></section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-list"></div>
+    </section>
+
+    <section id="contact"></section>
+
+    <footer>
+        <p>&copy; Thank You</p>
+    </footer>
+</body>
+</html>
+
